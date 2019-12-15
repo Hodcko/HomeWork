@@ -10,6 +10,7 @@ public class Strings {
 
         // Задание № 3
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите Мама мыла раму");
         String str3 = scanner.nextLine();
         System.out.println(str == str3.intern());//true, потому что метод .intern() нашел в пуле строк такую же строку и
     }                                            //вернул ссылку на нее
