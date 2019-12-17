@@ -1,3 +1,4 @@
+
 import com.sun.tools.javac.util.ArrayUtils;
 
 import java.util.Scanner;
@@ -33,18 +34,19 @@ public class ArrayDeleteDublicates {
         System.out.println(Arrays.toString(array)+" массив после сортировки");
 
         //находим количество дубликатов в массиве для определения длины нового массива
-        int j = 0;
+        int dublicates = 0;
         for (int i = 1; i < array.length; i ++){
             if(array[i-1] == array[i]){
-                j++;
+                dublicates++;
             }
         }
 
         //инициализируем новый массив необходимой длины
-        int[] arraySorted = new int[array.length-j];
-        int index = 0;
+        int[] arraySorted = new int[array.length-dublicates];
+
 
         //удаляем дубликаты
+        int index = 0;
         for (int i = 1; i < array.length; i ++){
             if(array[i] == array[i-1]){
                 arraySorted[index] = array[i];

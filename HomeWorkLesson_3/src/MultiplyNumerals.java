@@ -1,3 +1,4 @@
+
 public class MultiplyNumerals {
     public static void main(String[] args) {
         int number = 1;
@@ -9,7 +10,6 @@ public class MultiplyNumerals {
         int numberOfNumeral = 0;
         while (number != 0) {
             numeral = number % 10;
-            if (numeral == 0) {
                 mult *= (number % 10);
                 number /= 10;
                 numberOfNumeral++;
@@ -21,4 +21,3 @@ public class MultiplyNumerals {
             }
         }
     }
-}

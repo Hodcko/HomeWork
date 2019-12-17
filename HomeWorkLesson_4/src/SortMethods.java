@@ -1,10 +1,10 @@
-package src;
 
 import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import org.w3c.dom.ls.LSOutput;
 
 import java.util.Arrays;
 import java.util.Random;
+       // Задание № 1
 
 public class SortMethods {
     public static void main(String[] args) {
@@ -14,14 +14,21 @@ public class SortMethods {
             numbers[i] = rand.nextInt(10);
         }
         System.out.println(Arrays.toString(numbers)+" новый массив");
+
+        //Демонстрация работы функций для всех типов сортировки
+
         //Функция сортировки выбором
-        choiseSort(numbers);
+        int[] choise = choiseSort(numbers);
+        System.out.println(Arrays.toString(choise)+" массив отсортирован методом сортировки выбором");
         //Функция сортировки пузырьком
-        bubbleSort(numbers);
+        int[] bubble = bubbleSort(numbers);
+        System.out.println(Arrays.toString(bubble)+" массив отсортирован методом сортировки пузырьком");
         //Функция сортировки методом шейкера
-        sheikSort(numbers);
+        int[] sheik = sheikSort(numbers);
+        System.out.println(Arrays.toString(sheik)+" массив отсортирован методом сортировки шейкером");
         //Функция сортировки вставками
-        insertionSort(numbers);
+        int [] insert = insertionSort(numbers);
+        System.out.println(Arrays.toString(insert)+" массив отсортирован методом сортировки вставками");
         //Функция сортировки слиянием c возвратом отсортированного массива
         int[] merge = mergeSort(numbers, 0, numbers.length);
         System.out.println(Arrays.toString(merge)+" массив отсортирован методом сортировки слиянием");
@@ -35,7 +42,7 @@ public class SortMethods {
     }
 
     //Функция сортировки выбором
-    public static void choiseSort(int[] array){
+    public static int[] choiseSort(int[] array){
         for (int i = 0; i < array.length; i++){
             int temp = 0;
             int min = i;
@@ -48,14 +55,14 @@ public class SortMethods {
             array[i] = array[min];
             array[min] = temp;
         }
-        System.out.println(Arrays.toString(array)+" массив отсортирован выбором");
+        return array;
     }
 
 
 
 
     //Функция сортировки пузырьком
-    public static void bubbleSort(int[]array){
+    public static int[] bubbleSort(int[]array){
         boolean toMove = true;
         int temp = 0;
         while (toMove){
@@ -69,12 +76,12 @@ public class SortMethods {
                 }
             }
         }
-        System.out.println(Arrays.toString(array)+" массив отсортирован пузырьком");
+        return array;
     }
 
 
     //Функция сортировки методом шейкера
-    public static void sheikSort(int[] array){
+    public static int [] sheikSort(int[] array){
         int temp = 0;
         int left = 1;
         int right = array.length - 1;
@@ -95,14 +102,14 @@ public class SortMethods {
                 }
             }
         }while (left<=right);
-        System.out.println(Arrays.toString(array)+" массив отсортирован шейкером");
+        return array;
     }
 
 
 
 
     //Функция сортировки вставками
-    public static void  insertionSort(int [] array){
+    public static int[] insertionSort(int [] array){
         int left;
         int temp;
         for (left = 0; left < array.length; left ++){
@@ -117,7 +124,7 @@ public class SortMethods {
             }
             array[i + 1] = temp;
         }
-        System.out.println(Arrays.toString(array)+" массив отсортирован вставками");
+        return array;
     }
 
 
@@ -128,18 +135,18 @@ public class SortMethods {
             mergeSort(array, left, mid);
             mergeSort(array, mid, right);
 
-            int size = right - left;
-            int[] buffer = new int[size];
+            int length = right - left;
+            int[] buffer = new int[length];
             int i = left;
             int j = mid;
-            for (int k = 0; k < size; k++) {
+            for (int k = 0; k < length; k++) {
                 if (j >= right || i < mid && array[i] < array[j]) {
                     buffer[k] = array[i++];
                 } else {
                     buffer[k] = array[j++];
                 }
             }
-            System.arraycopy(buffer, 0, array, left, size);
+            System.arraycopy(buffer, 0, array, left, length);
         }
         return array;
 
