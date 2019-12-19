@@ -1,14 +1,23 @@
 import java.util.Random;
 public class Task2_1 {
     public static void main(String[] args) {
+
+    // Орел или решка
+
+        int numberOfCoinFlips = 1000;
+        headsOrTails(numberOfCoinFlips);
+    }
+
+
+    public static void headsOrTails(int numberOfCoinFlips) {
         int head = 0;
         int tail = 0;
         Random randNumber = new Random();
-        for (int i = 0; i < 1000; i ++){
+        for (int i = 0; i < numberOfCoinFlips; i++) {
             int coin = randNumber.nextInt(2) + 1;
-            if (coin == 1){
+            if (coin == 1) {
                 head++;
-            }else{
+            } else {
                 tail++;
             }
         }
