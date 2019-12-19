@@ -1,5 +1,5 @@
 import java.util.Random;
-public class HeadsOrTails {
+public class Task2_1 {
     public static void main(String[] args) {
         int head = 0;
         int tail = 0;
