@@ -43,13 +43,18 @@ public class Task2_2 {
         System.out.println("Проверка на палиндром");
         System.out.printf("Сгенерировано число %4d \n", number);
         int palNumber = 0;
-        for (int i = number, j = i % 10; i > 0; i = i / 10, j = i % 10) {
-            palNumber = palNumber * 10 + j;
+        int digit = 0;
+        for (int i = 1; number > 0;  number/=10){
+            digit = number%10;
+            for (int j = 1; j<2;j ++){
+                palNumber*=10;
+                palNumber+=digit;
+            }
         }
         if (number == palNumber) {
-            System.out.println("Палиндром");
+            System.out.println("Число являестя палиндромом");
         } else {
-            System.out.println("Не палиндром");
+            System.out.println("Число не является палиндромом");
         }
         System.out.println("");
     }
