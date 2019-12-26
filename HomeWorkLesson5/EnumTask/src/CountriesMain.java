@@ -13,17 +13,6 @@ public class CountriesMain {
                                                         // compareTo final и не может быть переопределен в энуме
 
 
-
-
-
-
-
-
-
-
-
-
-
     }
 
 }
