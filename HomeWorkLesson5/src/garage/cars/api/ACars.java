@@ -11,6 +11,8 @@ public abstract class ACars implements ICar, IEngine, IWheel, IKey {
 
      public int numberOfSeats;
      public int amountOfFuel;
+     public boolean openDoor = false;
+     public boolean carStart = false;
 
 
 
@@ -20,10 +22,15 @@ public abstract class ACars implements ICar, IEngine, IWheel, IKey {
 
     @Override
     public void open(Keys key) {
+        openDoor = true;
     }
 
     @Override
     public void drive() {
+        if (!carStart){
+            System.out.println("First you need start the car");
+            return;
+        }
             for(int i = 1; i <= amountOfFuel; i ++) {
                 System.out.println("Car rides...");
                 if (i == amountOfFuel){
@@ -34,6 +41,10 @@ public abstract class ACars implements ICar, IEngine, IWheel, IKey {
 
     @Override
     public void start(DriverLicense license) {
+        if (!openDoor){
+            System.out.println("Car is closed. Open to start");
+            return;
+        }
         if (license.toString() != "TYPE_B") {
             System.out.println("You are have not required driver's license");
             return;
@@ -41,6 +52,7 @@ public abstract class ACars implements ICar, IEngine, IWheel, IKey {
         if (amountOfFuel < 1){
             System.out.println("Fuel tank is empty");
         }
+        carStart = true;
     }
 
     @Override

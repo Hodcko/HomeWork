@@ -54,6 +54,10 @@ public class Bmw extends ACars {
     // функция для заводки автомобиля
     @Override
     public void start(DriverLicense license) {
+        if (!openDoor){
+            System.out.println("BMW is closed. Open to start");
+            return;
+        }
         if (license.toString() != "TYPE_B") {
             System.out.println("You are have not required driver's license");
             return;
@@ -65,12 +69,13 @@ public class Bmw extends ACars {
         if ((bmwEngine != null) && (bmwWheel != null)) {
             System.out.println("BMW started up");
         }
+        carStart = true;
     }
 
     // функция для заправки автомобиля
     @Override
     public void addFuel(FuelType type, int amountOfGas) {
-        if ((type.toString() == "REGULAR") || (type.toString() == "PREMIUM")) {
+        if (type.toString() != "PLUS")  {
             System.out.println("Only PLUS !!!");
             return;
         }
@@ -86,7 +91,8 @@ public class Bmw extends ACars {
     @Override
     public void open(Keys key) {
         if (key.toString() == "BMWKEY") {
-            System.out.println("Door is open");
+            System.out.println("BMW is open");
+            openDoor = true;
         }else {
             System.out.println("Use another key");
         }
@@ -95,10 +101,14 @@ public class Bmw extends ACars {
     //функция для езды
     @Override
     public void drive() {
+        if (!carStart){
+            System.out.println("First you need start the car");
+            return;
+        }
         for(int i = 1; i <= amountOfFuel; i ++) {
             System.out.println("BMW rides fast...");
             if (i == amountOfFuel){
-                System.out.println("The car stops slowly, fuel tank is empty");
+                System.out.println("BMW stops slowly, fuel tank is empty");
             }
         }
     }

@@ -55,6 +55,10 @@ public class Audi extends ACars {
     // функция для заводки автомобиля
     @Override
     public void start(DriverLicense license) {
+        if (!openDoor){
+            System.out.println("Audi is closed. Open to start");
+            return;
+        }
         if (license.toString() != "TYPE_B") {
             System.out.println("You are have not required driver's license");
             return;
@@ -66,6 +70,7 @@ public class Audi extends ACars {
         if ((audiEngine != null) && (audiWheel != null)) {
             System.out.println("Audi started up");
         }
+        carStart = true;
     }
 
     // функция для заправки автомобиля
@@ -87,7 +92,8 @@ public class Audi extends ACars {
     @Override
     public void open(Keys key) {
         if (key.toString() == "AUDIKEY") {
-            System.out.println("Door is open");
+            System.out.println("Audi is open");
+            openDoor = true;
         }else {
             System.out.println("Use another key");
         }
@@ -96,10 +102,14 @@ public class Audi extends ACars {
     //функция для езды
     @Override
     public void drive() {
+        if (!carStart){
+            System.out.println("First you need start the car");
+            return;
+        }
         for(int i = 1; i <= amountOfFuel; i ++) {
             System.out.println("Audi rides...");
             if (i == amountOfFuel){
-                System.out.println("The car stops slowly, fuel tank is empty");
+                System.out.println("Audi stops slowly, fuel tank is empty");
             }
         }
     }

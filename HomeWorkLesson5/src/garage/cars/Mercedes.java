@@ -53,6 +53,10 @@ public class Mercedes extends ACars{
     // функция для заводки автомобиля
     @Override
     public void start(DriverLicense license) {
+        if (!openDoor){
+            System.out.println("Mercedes is closed. Open to start");
+            return;
+        }
         if (license.toString() != "TYPE_B") {
             System.out.println("You are have not required driver's license");
             return;
@@ -64,6 +68,7 @@ public class Mercedes extends ACars{
         if ((mercedesEngine != null) && (mercedesWheel != null)) {
             System.out.println("Mercedes started up");
         }
+        carStart = true;
     }
 
     // функция для заправки автомобиля
@@ -85,7 +90,8 @@ public class Mercedes extends ACars{
     @Override
     public void open(Keys key) {
         if (key.toString() == "MERCEDESKEY") {
-            System.out.println("Door is open");
+            System.out.println("Mercedes is open");
+            openDoor = true;
         }else {
             System.out.println("Use another key");
         }
@@ -94,10 +100,14 @@ public class Mercedes extends ACars{
     //функция для езды
     @Override
     public void drive() {
+        if (!carStart){
+            System.out.println("First you need start the car");
+            return;
+        }
         for(int i = 1; i <= amountOfFuel; i ++) {
             System.out.println("Mercedes rides...");
             if (i == amountOfFuel){
-                System.out.println("The car stops slowly, fuel tank is empty");
+                System.out.println("Mercedes stops slowly, fuel tank is empty");
             }
         }
     }

@@ -22,13 +22,15 @@ public class GarageMain {
 
 
 
+
         Bmw bmwE90 = new Bmw("E90", 4);
         bmwE90.open(Keys.BMWKEY);//открываем машину нужным ключем
         bmwE90.start(DriverLicense.TYPE_B);//пробуем завести, предъявив водительсоке нужное удостоверение...нет горючего
-        bmwE90.addFuel(FuelType.DIESEL, 5);//заправляем машину нужным топливом
+        bmwE90.addFuel(FuelType.PLUS, 5);//заправляем машину нужным топливом
         bmwE90.start(DriverLicense.TYPE_B);// успешно заводим
         bmwE90.drive();//едем пока не закончится топливо
         System.out.println("");
+
 
 
 
@@ -38,13 +40,6 @@ public class GarageMain {
         mercedesW204.addFuel(FuelType.DIESEL, 5);//заправляем машину нужным топливом
         mercedesW204.start(DriverLicense.TYPE_B);// успешно заводим
         mercedesW204.drive();//едем пока не закончится топливо
-
-
-
-
-
-
-
 
 
 
