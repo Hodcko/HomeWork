@@ -1,9 +1,6 @@
 package garage.cars;
 
 import garage.cars.api.*;
-import garage.parts.Engine;
-import garage.parts.Key;
-import garage.parts.Wheel;
 import garage.parts.api.*;
 
 public class Mercedes extends ACars {
@@ -23,6 +20,7 @@ public class Mercedes extends ACars {
         setRequiredLicense(requiredLicense);
 
     }
+
 
     @Override
     public String getModel() {

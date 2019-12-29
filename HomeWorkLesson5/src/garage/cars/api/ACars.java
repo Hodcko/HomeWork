@@ -1,7 +1,6 @@
 package garage.cars.api;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-import garage.cars.Mercedes;
+
 import garage.parts.Engine;
 import garage.parts.Key;
 import garage.parts.Lock;
