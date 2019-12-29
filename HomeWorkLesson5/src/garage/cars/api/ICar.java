@@ -1,14 +1,20 @@
 package garage.cars.api;
 
 import garage.parts.api.IKey;
+import garage.parts.api.IEngine;
 
-public interface ICar {
-    void drive();
-    void open(Keys key);
+public interface ICar{
+    String getModel();
+    String getBrand();
+    void open(IKey key);
     void close();
-    void start(DriverLicense license);
+    void driverSeat(IDriver driver);
+    void passengerSeat(int numberOfPassengers);
+    void start();
     void stop();
+    double running();
     void addFuel(FuelType type, int amountOfGas);
-    void driverSeat(DriverLicense license);
-    int passengerSeat();
+
+
+
 }
