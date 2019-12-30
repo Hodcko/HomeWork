@@ -1,58 +1,97 @@
 package garage.cars.api;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import garage.cars.Audi;
+import garage.parts.api.IEngine;
+import garage.parts.api.IKey;
+import garage.parts.api.IWheel;
 
-import garage.parts.Engine;
-import garage.parts.Key;
-import garage.parts.Lock;
-import garage.parts.Wheel;
-import garage.parts.api.*;
-
-
-
-public abstract class ACars implements ICar{
+public abstract class ACars implements ICar, IEngine, IWheel, IKey {
 
 
-    private int numberOfSeats;
-    private String requiredLicense;
-
-
-    public static ILock myLock = new Lock("QWERTY");
-    public static IEngine myEngine = new Engine(3000, FuelType.PREMIUM, "M54B30");
-    public static IWheel myWeel = new Wheel(17, "Nokian", WheelType.WINTER);
-    public static IKey myKey = new Key("QWERTY");
-    public static IDriver myDriver = new Driver(DriverLicense.TYPE_B);
+     public int numberOfSeats;
+     public int amountOfFuel;
+     public boolean openDoor = false;
+     public boolean carStart = false;
 
 
 
-
-    public void setRequiredLicense(String requiredLicense) {
-        this.requiredLicense = requiredLicense;
+    @Override
+    public void addFuel(FuelType type, int amountOfGas) {
     }
 
-    public String getRequiredLicense() {
-        return requiredLicense;
+    @Override
+    public void open(Keys key) {
+        openDoor = true;
+    }
+
+    @Override
+    public void drive() {
+        if (!carStart){
+            System.out.println("First you need start the car");
+            return;
+        }
+            for(int i = 1; i <= amountOfFuel; i ++) {
+                System.out.println("Car rides...");
+                if (i == amountOfFuel){
+                    System.out.println("The car stops slowly, fuel tank is empty");
+                }
+            }
+    }
+
+    @Override
+    public void start(DriverLicense license) {
+        if (!openDoor){
+            System.out.println("Car is closed. Open to start");
+            return;
+        }
+        if (license.toString() != "TYPE_B") {
+            System.out.println("You are have not required driver's license");
+            return;
+        }
+        if (amountOfFuel < 1){
+            System.out.println("Fuel tank is empty");
+        }
+        carStart = true;
+    }
+
+    @Override
+    public void changeEngine(double engineCapacity, String engineName, FuelType type){
+    }
+
+    @Override
+    public void changeWheels(double wheelRadius, String wheelName, WheelType type){
     }
 
 
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
+
+    //функции есть в ICar, но пока не используются и не имеют конечной реализации
+
+    @Override
+    public void close() {
+        System.out.println("Door is closed");
     }
 
-    public int getNumberOfSeats() {
+    @Override
+    public void stop() {
+        System.out.println("The car stopped");
+
+    }
+
+    @Override
+    public int passengerSeat() {
         return numberOfSeats;
-    }
 
+    }
     @Override
-    public String getModel() {
-        return null;
+    public void driverSeat(DriverLicense license) {
+        if ((license.toString() == "TYPE_B" || (license.toString() == "TYPE_C")))
+        {
+            System.out.println("You can drive this car");
+        }else{
+            System.out.println("You are have not required driver's license");
+        }
     }
-
-    @Override
-    public String getBrand() {
-        return null;
-    }
-
-
 
 
 }
