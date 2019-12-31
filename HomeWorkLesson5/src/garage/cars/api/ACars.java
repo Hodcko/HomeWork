@@ -1,7 +1,7 @@
 package garage.cars.api;
 
 import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-import garage.cars.Mercedes;
+
 import garage.parts.Engine;
 import garage.parts.Key;
 import garage.parts.Lock;
@@ -12,22 +12,39 @@ import java.util.Random;
 
 public abstract class ACars implements ICar{
 
-    private boolean running = false;
+    Random rand = new Random();
+    private boolean started = false;
     private boolean driversSeat = false;
     private boolean open = false;
+    private boolean passengerSeat = false;
     private int amountOfGas;
     private int mileage;
     private int numberOfSeats;
     private String requiredLicense;
-    Random rand = new Random();
 
-    public static ILock myLock = new Lock("QWERTY");
-    public static IEngine myEngine = new Engine(3000, FuelType.PREMIUM, "M54B30");
-    public static IWheel myWeel = new Wheel(17, "Nokian", WheelType.WINTER);
-    public static IKey myKey = new Key("QWERTY");
-    public static IDriver myDriver = new Driver(DriverLicense.TYPE_B);
+    private ILock myLock;
+    private IEngine myEngine;
 
 
+    public ACars(ILock myLock, IEngine myEngine){
+        this.myLock = myLock;
+        this.myEngine = myEngine;
+    }
+
+    @Override
+    public boolean isOpen() {
+        return open;
+    }
+
+    @Override
+    public boolean isStarted() {
+        return started;
+    }
+
+    @Override
+    public boolean isDriversSeat() {
+        return driversSeat;
+    }
 
 
     public void setRequiredLicense(String requiredLicense) {
@@ -54,7 +71,7 @@ public abstract class ACars implements ICar{
     }
 
     @Override
-    public void open(IKey key) {
+    public boolean open(IKey key) {
         if(!open) {
             if (key.getKeySecret() == myLock.getLockSecret()) {
                 System.out.println("Car is open");
@@ -65,20 +82,31 @@ public abstract class ACars implements ICar{
         }else {
             System.out.println("The car is already open");
         }
+        return open;
+
     }
 
     @Override
-    public void close() {
-        if (open){
-            open = false;
-            System.out.println("Car is closed");
-        }else{
-            System.out.println("Car is already closed");
+    public boolean close(IKey key) {
+        if(open) {
+            if (key.getKeySecret() == myLock.getLockSecret()) {
+                System.out.println("Car is closed");
+                open = false;
+            } else {
+                System.out.println("The key is not suitable");
+            }
+        }else {
+            System.out.println("The car is already closed");
         }
+        return !open;
     }
 
+    /**
+     * @result if true OK if else
+     * @param driver
+     */
     @Override
-    public void driverSeat(IDriver driver) {
+    public boolean driverSeat(IDriver driver) {
         if(open) {
             if (driver.getLicense().toString() == getRequiredLicense()) {
                 System.out.println("You sat in the driver's seat");
@@ -89,63 +117,68 @@ public abstract class ACars implements ICar{
         }else{
             System.out.println("Car is closed");
         }
+        return driversSeat;
     }
 
     @Override
-    public void passengerSeat(int numberOfPassengers) {
+    public boolean passengerSeat(int numberOfPassengers) {
         if(open) {
             if (numberOfPassengers > (numberOfSeats - 1)) {
                 System.out.println("All passengers will not fit");
             } else {
                 System.out.println("All passengers fit");
+                passengerSeat = true;
             }
         }else {
             System.out.println("Car is closed");
         }
-
+        return passengerSeat;
     }
 
 
    @Override
-    public void start() {
+    public boolean start() {
         if (driversSeat) {
             if (amountOfGas > 0) {
-                if (!running) {
-                    running = true;
+                if (!started) {
+                    started = true;
                     System.out.println("The car is started up");
                    } else {
-                    System.out.println("Car is already running");
+                    System.out.println("Car is already started");
                     }
                 } else {
                 System.out.println("Fuel tank in empty");
             }
             } else{
-                System.out.println("You are not at drivers seat");
+                System.out.println("Nobody at drivers seat");
             }
+        return started;
     }
 
 
 
     @Override
-    public void stop() {
-        if(running){
-            running = false;
+    public boolean stop() {
+        if(started){
+            started = false;
             System.out.println("Car is stopped");
         } else {
             System.out.println("Car is already stopped");
         }
+        return !started;
     }
 
     @Override
     public double running() {
-        if (running) {
+        if (started) {
                 if (amountOfGas > 0) {
                     for (int i = 1; i < amountOfGas; i += rand.nextInt(2)) {
                         mileage++;
                     }
                     System.out.printf("You drove %d kilometers\n", mileage);
                     System.out.println("Car is stopped");
-                    running = false;
+                    started = false;
+                    mileage = 0;
                 }else{
                     System.out.println("Fuel tank in empty");
                     return 0;
@@ -158,20 +191,24 @@ public abstract class ACars implements ICar{
 
     @Override
     public void addFuel(FuelType type, int amountOfGas) {
-        if (type.toString() != myEngine.getFuelType().toString()) {
-            System.out.println("Need best quality gas");
-            return;
+        if(open) {
+            if (!started) {
+                if (type.toString() != myEngine.getFuelType().toString()) {
+                    System.out.println("Need best quality gas");
+                    return;
+                }
+                if (amountOfGas > 70) {
+                    System.out.println("Does not fit");
+                    return;
+                }
+                this.amountOfGas = amountOfGas;
+                System.out.printf("%d litres added\n", amountOfGas);
+            } else {
+                System.out.println("The car must be stopped");
+            }
+        }else{
+            System.out.println("Car is closed");
         }
-        if (amountOfGas > 70){
-            System.out.println("Does not fit");
-            return;
-        }
-        this.amountOfGas = amountOfGas;
-        System.out.printf("%d litres added\n", amountOfGas);
-
     }
-
-
-
 
 }

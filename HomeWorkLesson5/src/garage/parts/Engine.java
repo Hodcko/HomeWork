@@ -9,7 +9,6 @@ public class Engine implements IEngine {
     private final String id;
     private final int capacity;
     private FuelType fuelType;
-    private boolean running = false;
     private int amountOfGas;
 
 

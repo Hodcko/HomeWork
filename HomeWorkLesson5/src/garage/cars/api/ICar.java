@@ -6,14 +6,17 @@ import garage.parts.api.IEngine;
 public interface ICar{
     String getModel();
     String getBrand();
-    void open(IKey key);
-    void close();
-    void driverSeat(IDriver driver);
-    void passengerSeat(int numberOfPassengers);
-    void start();
-    void stop();
+    boolean open(IKey key);
+    boolean close(IKey key);
+    boolean driverSeat(IDriver driver);
+    boolean passengerSeat (int numberOfPassengers);
+    boolean start();
+    boolean stop();
     double running();
     void addFuel(FuelType type, int amountOfGas);
+    boolean isOpen();
+    boolean isStarted();
+    boolean isDriversSeat();
 
 
 
