@@ -1,7 +1,14 @@
 package garage.parts.api;
 
 import garage.cars.api.Keys;
+import garage.parts.Key;
 
 public interface IKey {
-    void open(Keys key);
+    String getKeySecret();
+
+
+
+
+
 }
+
