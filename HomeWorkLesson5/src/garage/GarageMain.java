@@ -1,4 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+package garage;
+
+>>>>>>> 6622a79... merge branches
 =======
 package garage;
 
@@ -49,6 +54,11 @@ public class GarageMain{
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 6622a79... merge branches
 =======
 
 
