@@ -1,45 +1,43 @@
-package garage;
 
-import garage.cars.Audi;
-import garage.cars.Bmw;
 import garage.cars.Mercedes;
-import garage.cars.api.DriverLicense;
-import garage.cars.api.FuelType;
-import garage.cars.api.Keys;
-import garage.cars.api.WheelType;
+import garage.cars.api.*;
+import garage.parts.Engine;
+import garage.parts.Key;
+import garage.parts.Lock;
+import garage.parts.Wheel;
+import garage.parts.api.IEngine;
+import garage.parts.api.IKey;
+import garage.parts.api.ILock;
+import garage.parts.api.IWheel;
 
-public class GarageMain {
+public class GarageMain{
     public static void main(String[] args) {
 
-
-        Audi audiA4 = new Audi("A4", 4);
-        audiA4.open(Keys.AUDIKEY); //открываем машину нужным ключем
-        audiA4.start(DriverLicense.TYPE_B); //пробуем завести, предъявив водительсоке нужное удостоверение...нет горючего
-        audiA4.addFuel(FuelType.PREMIUM, 5); //заправляем машину нужным топливом
-        audiA4.start(DriverLicense.TYPE_B);// успешно заводим
-        audiA4.drive();//едем пока не закончится топливо
-        System.out.println("");
+        ILock myLock = new Lock("QWERTY");
+        IEngine myEngine = new Engine(3000, FuelType.PREMIUM, "M54B30");
+        IWheel myWeel = new Wheel(17, "Nokian", WheelType.WINTER);
+        IKey myKey = new Key("QWERTY");
+        Driver myDriver = new Driver(DriverLicense.TYPE_B);
+        Mercedes w204 = new Mercedes("W204", "TYPE_B", 5, myEngine, myWeel, myLock);
 
 
 
-
-        Bmw bmwE90 = new Bmw("E90", 4);
-        bmwE90.open(Keys.BMWKEY);//открываем машину нужным ключем
-        bmwE90.start(DriverLicense.TYPE_B);//пробуем завести, предъявив водительсоке нужное удостоверение...нет горючего
-        bmwE90.addFuel(FuelType.PLUS, 5);//заправляем машину нужным топливом
-        bmwE90.start(DriverLicense.TYPE_B);// успешно заводим
-        bmwE90.drive();//едем пока не закончится топливо
-        System.out.println("");
-
-
-
-
-        Mercedes mercedesW204 = new Mercedes("W204", 5);
-        mercedesW204.open(Keys.MERCEDESKEY);//открываем машину нужным ключем
-        mercedesW204.start(DriverLicense.TYPE_B);//пробуем завести, предъявив водительсоке нужное удостоверение...нет горючего
-        mercedesW204.addFuel(FuelType.DIESEL, 5);//заправляем машину нужным топливом
-        mercedesW204.start(DriverLicense.TYPE_B);// успешно заводим
-        mercedesW204.drive();//едем пока не закончится топливо
+        w204.open(myKey);
+        if(w204.isOpen()) {
+            w204.driverSeat(myDriver);
+            if(w204.isDriversSeat()) {
+                w204.passengerSeat(4);
+                w204.addFuel(FuelType.PREMIUM, 50);
+                w204.start();
+                if(w204.isStarted()) {
+                    w204.running();
+                    w204.addFuel(FuelType.PREMIUM, 50);
+                    w204.start();
+                    w204.running();
+                    w204.close(myKey);
+                }
+            }
+        }
 
 
 

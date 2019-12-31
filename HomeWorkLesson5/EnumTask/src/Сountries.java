@@ -28,9 +28,9 @@ enum Countries implements ICountries, Comparable<Countries> {
 
 
     public int compare(Countries anotherCountries){
-        if (this.area == anotherCountries.getArea()) {
+        if (this.area == anotherCountries.area) {
             return 0;
-        } else if (this.area < anotherCountries.getArea()) {
+        } else if (this.area < anotherCountries.area) {
             return -1;
         } else {
             return 1;
