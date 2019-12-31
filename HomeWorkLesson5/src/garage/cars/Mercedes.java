@@ -20,12 +20,10 @@ public class Mercedes extends ACars {
     }
 
 
-    @Override
     public String getModel() {
         return model;
     }
 
-    @Override
     public String getBrand() {
         return "Mercedes";
     }

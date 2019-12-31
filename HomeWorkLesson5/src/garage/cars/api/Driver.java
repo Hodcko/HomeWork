@@ -12,9 +12,6 @@ public class Driver implements IDriver {
 
     public Driver(DriverLicense license){
         this.license = license;
-
     }
-
-
 }
 

@@ -5,8 +5,6 @@ import garage.parts.api.IKey;
 import garage.parts.api.IEngine;
 
 public interface ICar{
-    String getModel();
-    String getBrand();
     boolean open(IKey key);
     boolean close(IKey key);
     boolean driverSeat(IDriver driver);
@@ -18,7 +16,4 @@ public interface ICar{
     boolean isOpen();
     boolean isStarted();
     boolean isDriversSeat();
-
-
-
 }

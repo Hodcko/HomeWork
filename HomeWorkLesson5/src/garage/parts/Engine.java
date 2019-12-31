@@ -19,8 +19,6 @@ public class Engine implements IEngine {
         this.id = id;
     }
 
-
-
     @Override
     public String getId() {
         return id;
@@ -51,9 +49,5 @@ public class Engine implements IEngine {
     public void setAmountOfGas(int amountOfGas) {
         this.amountOfGas = amountOfGas;
     }
-
-
-
-
 
 }

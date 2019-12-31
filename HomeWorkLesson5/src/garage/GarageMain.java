@@ -1,6 +1,5 @@
 package garage;
 
-
 import garage.cars.Mercedes;
 import garage.cars.api.*;
 import garage.parts.Engine;
@@ -23,7 +22,6 @@ public class GarageMain{
         Mercedes w204 = new Mercedes("W204", "TYPE_B", 5, myEngine, myWeel, myLock);
 
 
-
         w204.open(myKey);
         if(w204.isOpen()) {
             w204.driverSeat(myDriver);
@@ -40,13 +38,6 @@ public class GarageMain{
                 }
             }
         }
-
-
-
-
-
-
-
     }
 }
 

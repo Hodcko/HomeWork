@@ -5,10 +5,5 @@ import garage.parts.Key;
 
 public interface IKey {
     String getKeySecret();
-
-
-
-
-
 }
 

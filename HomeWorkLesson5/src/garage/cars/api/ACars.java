@@ -55,20 +55,10 @@ public abstract class ACars implements ICar{
         return requiredLicense;
     }
 
-
     public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
 
-    @Override
-    public String getModel() {
-        return null;
-    }
-
-    @Override
-    public String getBrand() {
-        return null;
-    }
 
     @Override
     public boolean open(IKey key) {
@@ -135,7 +125,6 @@ public abstract class ACars implements ICar{
         return passengerSeat;
     }
 
-
     @Override
     public boolean start() {
         if (driversSeat) {
@@ -154,8 +143,6 @@ public abstract class ACars implements ICar{
         }
         return started;
     }
-
-
 
     @Override
     public boolean stop() {
@@ -210,5 +197,4 @@ public abstract class ACars implements ICar{
             System.out.println("Car is closed");
         }
     }
-
 }

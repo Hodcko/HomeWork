@@ -15,8 +15,4 @@ public class Key implements IKey {
     public Key (String keySecret){
         this.keySecret = keySecret;
     }
-
-
-
-
 }

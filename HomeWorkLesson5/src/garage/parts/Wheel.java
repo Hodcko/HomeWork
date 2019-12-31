@@ -36,7 +36,7 @@ public class Wheel implements IWheel {
 
     @Override
     public void changeWheels(int radius, String id, WheelType wheelType){
-
+        Wheel myWheel = new Wheel(radius, id, wheelType);
 
     }
 }

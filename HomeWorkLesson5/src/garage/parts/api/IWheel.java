@@ -10,9 +10,4 @@ public interface IWheel {
     WheelType getWheelType();
     String getId();
     int getRadius();
-
-
-
-
-
 }
