@@ -1,18 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-package garage;
 
->>>>>>> 6622a79... merge branches
-=======
 package garage;
-
->>>>>>> 6622a79... merge branches
-=======
-package garage;
-
->>>>>>> 6622a79... merge branches
 
 import garage.cars.Mercedes;
 import garage.cars.api.*;
@@ -58,20 +45,6 @@ public class GarageMain{
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 6622a79... merge branches
-=======
-
-
->>>>>>> 6622a79... merge branches
-=======
-
-
->>>>>>> 6622a79... merge branches
     }
 }
