@@ -136,22 +136,22 @@ public abstract class ACars implements ICar{
     }
 
 
-   @Override
+    @Override
     public boolean start() {
         if (driversSeat) {
             if (amountOfGas > 0) {
                 if (!started) {
                     started = true;
                     System.out.println("The car is started up");
-                   } else {
-                    System.out.println("Car is already started");
-                    }
                 } else {
+                    System.out.println("Car is already started");
+                }
+            } else {
                 System.out.println("Fuel tank in empty");
             }
-            } else{
-                System.out.println("Nobody at drivers seat");
-            }
+        } else{
+            System.out.println("Nobody at drivers seat");
+        }
         return started;
     }
 
@@ -171,18 +171,18 @@ public abstract class ACars implements ICar{
     @Override
     public double running() {
         if (started) {
-                if (amountOfGas > 0) {
-                    for (int i = 1; i < amountOfGas; i += rand.nextInt(2)) {
-                        mileage++;
-                    }
-                    System.out.printf("You drove %d kilometers\n", mileage);
-                    System.out.println("Car is stopped");
-                    started = false;
-                    mileage = 0;
-                }else{
-                    System.out.println("Fuel tank in empty");
-                    return 0;
+            if (amountOfGas > 0) {
+                for (int i = 1; i < amountOfGas; i += rand.nextInt(2)) {
+                    mileage++;
                 }
+                System.out.printf("You drove %d kilometers\n", mileage);
+                System.out.println("Car is stopped");
+                started = false;
+                mileage = 0;
+            }else{
+                System.out.println("Fuel tank in empty");
+                return 0;
+            }
         } else {
             System.out.println("The car is not started up");
         }
