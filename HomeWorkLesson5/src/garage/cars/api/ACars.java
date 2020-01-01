@@ -67,10 +67,10 @@ public abstract class ACars implements ICar{
                 System.out.println("Car is open");
                 open = true;
             } else {
-                System.out.println("The key is not suitable");
+                throw new IllegalArgumentException("The key is not suitable");
             }
         }else {
-            System.out.println("The car is already open");
+            throw new IllegalArgumentException("The car is already open");
         }
         return open;
 
@@ -83,10 +83,10 @@ public abstract class ACars implements ICar{
                 System.out.println("Car is closed");
                 open = false;
             } else {
-                System.out.println("The key is not suitable");
+                throw new IllegalArgumentException("The key is not suitable");
             }
         }else {
-            System.out.println("The car is already closed");
+            throw new IllegalArgumentException("The car is already closed");
         }
         return !open;
     }
@@ -102,10 +102,10 @@ public abstract class ACars implements ICar{
                 System.out.println("You sat in the driver's seat");
                 driversSeat = true;
             }else {
-                System.out.println("Need another drivers license");
+                throw new IllegalArgumentException("Need another drivers license");
             }
         }else{
-            System.out.println("Car is closed");
+            throw new IllegalArgumentException("Car is closed");
         }
         return driversSeat;
     }
@@ -114,13 +114,13 @@ public abstract class ACars implements ICar{
     public boolean passengerSeat(int numberOfPassengers) {
         if(open) {
             if (numberOfPassengers > (numberOfSeats - 1)) {
-                System.out.println("All passengers will not fit");
+                throw new IllegalArgumentException("All passengers will not fit");
             } else {
                 System.out.println("All passengers fit");
                 passengerSeat = true;
             }
         }else {
-            System.out.println("Car is closed");
+            throw new IllegalArgumentException("Car is closed");
         }
         return passengerSeat;
     }
@@ -133,13 +133,13 @@ public abstract class ACars implements ICar{
                     started = true;
                     System.out.println("The car is started up");
                 } else {
-                    System.out.println("Car is already started");
+                    throw new IllegalArgumentException("Car is already started");
                 }
             } else {
-                System.out.println("Fuel tank in empty");
+                throw new IllegalArgumentException("Fuel tank in empty");
             }
         } else{
-            System.out.println("Nobody at drivers seat");
+            throw new IllegalArgumentException("Nobody at drivers seat");
         }
         return started;
     }
@@ -150,7 +150,7 @@ public abstract class ACars implements ICar{
             started = false;
             System.out.println("Car is stopped");
         } else {
-            System.out.println("Car is already stopped");
+            throw new IllegalArgumentException("Car is already stopped");
         }
         return !started;
     }
@@ -167,11 +167,10 @@ public abstract class ACars implements ICar{
                 started = false;
                 mileage = 0;
             }else{
-                System.out.println("Fuel tank in empty");
-                return 0;
+                throw new IllegalArgumentException("Fuel tank in empty");
             }
         } else {
-            System.out.println("The car is not started up");
+            throw new IllegalArgumentException("The car is not started up");
         }
         return 0;
     }
@@ -181,20 +180,18 @@ public abstract class ACars implements ICar{
         if(open) {
             if (!started) {
                 if (type.toString() != myEngine.getFuelType().toString()) {
-                    System.out.println("Need best quality gas");
-                    return;
+                    throw new IllegalArgumentException("Need best quality gas");
                 }
                 if (amountOfGas > 70) {
-                    System.out.println("Does not fit");
-                    return;
+                    throw new IllegalArgumentException("Does not fit in fuel tank");
                 }
                 this.amountOfGas = amountOfGas;
                 System.out.printf("%d litres added\n", amountOfGas);
             } else {
-                System.out.println("The car must be stopped");
+                throw new IllegalArgumentException("The car must be stopped");
             }
         }else{
-            System.out.println("Car is closed");
+            throw new IllegalArgumentException("Car is closed");
         }
     }
 }
