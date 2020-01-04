@@ -1,9 +1,13 @@
 package api;
 
+
+import ClassWorkAnnotation.IVersion;
+
 public class Calculator {
 
     private int result;
 
+    @IVersion(info = "3.5.3")
     public int addition (int firstNumber, int secondNumber){
         result = firstNumber + secondNumber;
         System.out.printf("The result of the addition %d and %d is %d\n", firstNumber, secondNumber, result);
