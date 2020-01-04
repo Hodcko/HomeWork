@@ -10,12 +10,5 @@ public interface IParts {
     IParts myCPU = new CPU(ECPU.INTEL);
     IParts myHDD = new HDD(EHDD.SATA);
     IParts myRAM = new RAM(ERAM.DDR4);
-    IParts [] part = new IParts[]{myCPU, myHDD, myRAM};
-
-
-
-
-
-
-
+    IParts [] parts = new IParts[]{myCPU, myHDD, myRAM};
 }

@@ -10,7 +10,6 @@ public class CPU implements IParts{
         return myPart;
     }
 
-
     public CPU(ECPU myPart){
         this.myPart = myPart;
     }
