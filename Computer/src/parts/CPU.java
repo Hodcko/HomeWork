@@ -1,7 +1,8 @@
 package parts;
-import java.util.Random;
 import api.ECPU;
 import api.IStandart;
+
+import java.util.Random;
 
 public class CPU implements IParts{
     private Enum myPart;
@@ -36,4 +37,6 @@ public class CPU implements IParts{
         System.out.println("CPU is incompatible");
         return false;
     }
+
 }
+
