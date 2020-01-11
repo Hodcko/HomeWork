@@ -2,6 +2,7 @@ package parts;
 
 
 import api.ERAM;
+import api.IParts;
 import api.IStandart;
 
 import java.util.Random;

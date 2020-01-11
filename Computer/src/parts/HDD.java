@@ -1,11 +1,12 @@
 package parts;
 
 import api.EHDD;
+import api.IParts;
 import api.IStandart;
 
 import java.util.Random;
 
-public class HDD implements IParts{
+public class HDD implements IParts {
     private Enum myPart;
     Random random = new Random();
 

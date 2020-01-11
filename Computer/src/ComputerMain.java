@@ -1,5 +1,5 @@
 import api.IStandart;
-import parts.IParts;
+import api.IParts;
 
 public class ComputerMain{
     public static void main(String[] args) {

@@ -1,10 +1,11 @@
 package parts;
 import api.ECPU;
+import api.IParts;
 import api.IStandart;
 
 import java.util.Random;
 
-public class CPU implements IParts{
+public class CPU implements IParts {
     private Enum myPart;
     Random random = new Random();
 

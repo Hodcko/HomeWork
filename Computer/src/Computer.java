@@ -1,6 +1,5 @@
 
 import api.*;
-import parts.*;
 
 public class Computer{
     private IParts[] parts;

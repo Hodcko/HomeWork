@@ -1,9 +1,8 @@
-package parts;
+package api;
 
-import api.ECPU;
-import api.EHDD;
-import api.ERAM;
-import api.IStandart;
+import parts.CPU;
+import parts.HDD;
+import parts.RAM;
 
 public interface IParts {
     boolean compatible(IStandart[] standarts);
