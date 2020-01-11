@@ -1,5 +1,5 @@
-import api.IStandart;
-import parts.IParts;
+import api.*;
+
 
 public class OfficePC extends ComputerBuilder{
     @Override
