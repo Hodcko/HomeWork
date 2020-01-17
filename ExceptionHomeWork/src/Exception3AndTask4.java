@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.Collections;
 
 public class Exception3AndTask4 {
     public static int[] createArray() {
