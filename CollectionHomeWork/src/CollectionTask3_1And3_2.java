@@ -23,14 +23,12 @@ public class CollectionTask3_1And3_2 {
         }
 
         System.out.println("Вывод коллекции на консоль после сортировки");
-
         Collection myList = FilterApplicator.sort(list);
         for (Object o : myList) {
             System.out.println(o);
         }
 
         System.out.println("Вывод коллекции на консоль после фильтрации");
-
         FilterApplicator.filter(list, new MyFilter());
         for (SortAndFilterTestClass sortAndFilterTestClass : list) {
             System.out.println(sortAndFilterTestClass);

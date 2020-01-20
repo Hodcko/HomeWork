@@ -8,8 +8,4 @@ public class myComporator implements Comparator<Passport> {
     public int compare(Passport first, Passport second) {
         return first.getId().compareTo((second.getId()));
     }
-
-
-
-
 }

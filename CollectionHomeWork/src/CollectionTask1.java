@@ -12,7 +12,6 @@ public class CollectionTask1 {
             passportArrayList.add(new Passport("" + random.nextInt(10_000_000), new Date(), "Иванов А.И."));
         }
         endTime = System.currentTimeMillis();
-        System.out.println("Время добавления 1  0 000 000 элементов в ArrayList: " + (endTime - startTime));
         System.out.println("Размер ArrayList до удаления объектов: " + passportArrayList.size());
 
         startDeleteTime = System.currentTimeMillis();
@@ -20,7 +19,6 @@ public class CollectionTask1 {
             passportArrayList.remove(i);
         }
         endDeleteTime = System.currentTimeMillis();
-        System.out.println("Время удаления 10 000 000 элементов из ArrayList: " + (endDeleteTime - startDeleteTime));
         System.out.println("Размер ArrayList после удаления всех объектов: " + passportArrayList.size());
 
         List<Passport> passportLinkedList = new LinkedList<>();
@@ -30,22 +28,18 @@ public class CollectionTask1 {
             passportLinkedList.add(new Passport("" + random.nextInt(10_000_000), new Date(), "Иванов А.И."));
         }
         endTime2 = System.currentTimeMillis();
-        System.out.println("Время добавления 10 000 000 элементов в LinkedList: " + (endTime2 - startTime2));
-        System.out.println("Размер LinkedList до удвления объектов: " + passportLinkedList.size());
+        System.out.println("Размер LinkedList до удаления объектов: " + passportLinkedList.size());
 
         startDeleteTime2 = System.currentTimeMillis();
         for(int i = 9999999; i >= 0; i --){
             passportLinkedList.remove(i);
         }
         endDeleteTime2 = System.currentTimeMillis();
-        System.out.println("Время удаления 10 000 000 элементов из ArrayList: " + (endDeleteTime2 - startDeleteTime2));
         System.out.println("Размер LinkedList после удаления всех объектов: " + passportLinkedList.size());
-
-
-
-
-
-
+        System.out.println("Время добавления 10 000 000 элементов в ArrayList: " + (endTime - startTime));
+        System.out.println("Время добавления 10 000 000 элементов в LinkedList: " + (endTime2 - startTime2));
+        System.out.println("Время удаления 10 000 000 элементов из ArrayList: " + (endDeleteTime - startDeleteTime));
+        System.out.println("Время удаления 10 000 000 элементов из ArrayList: " + (endDeleteTime2 - startDeleteTime2));
     }
 }
 

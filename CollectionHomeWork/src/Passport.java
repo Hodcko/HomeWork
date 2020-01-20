@@ -13,7 +13,6 @@ public class Passport{
         this.fio = fio;
     }
 
-
     public String getId() {
         return id;
     }
@@ -59,5 +58,4 @@ public class Passport{
                 ", fio='" + fio + '\'' +
                 '}';
     }
-
 }

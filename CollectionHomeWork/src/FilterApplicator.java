@@ -8,7 +8,7 @@ public class FilterApplicator <T>{
     }
 
     public static  <T extends Comparable> Collection sort(Collection<T> collection){
-       Set<T> set = new TreeSet<T>(collection);
+       Collection<T> set = new TreeSet<T>(collection);
         return set;
     }
 }

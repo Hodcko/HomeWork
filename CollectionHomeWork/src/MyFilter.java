@@ -12,8 +12,6 @@ public class MyFilter {
             if (countOfElements > 2){
                 iterator.remove();
             }
-
         }
-
     }
 }
