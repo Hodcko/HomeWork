@@ -1,51 +1,39 @@
+import sun.tools.jstat.Literal;
+
 import java.util.*;
 
 public class CollectionTask3_1And3_2 {
     public static void main(String[] args) {
-        List<Passport> passportArrayList = new ArrayList<>();
-        Random random = new Random();
 
-        for(int i = 0; i < 9; i++){
-            passportArrayList.add(new Passport("" + random.nextInt(100), new Date(), "Иванов А.И."));
-        }
-        System.out.println("Вывод на консоль до филрации");
-        for (Passport passport : passportArrayList) {
-            System.out.println(passport);
-        }
-        System.out.println("Вывод на консоль после фильтрации");
-//
-//        FilterApplicator.filter(passportArrayList, new myComporator());
-//
-//        for (Passport passport : passportArrayList) {
-//            System.out.println(passport);
-//        }
+        List<SortAndFilterTestClass> list = new ArrayList<>();
+        SortAndFilterTestClass example1 = new SortAndFilterTestClass(12);
+        SortAndFilterTestClass example2 = new SortAndFilterTestClass(9);
+        SortAndFilterTestClass example3 = new SortAndFilterTestClass(3);
+        SortAndFilterTestClass example4 = new SortAndFilterTestClass(2);
+        SortAndFilterTestClass example5 = new SortAndFilterTestClass(16);
+        list.add(example1);
+        list.add(example2);
+        list.add(example3);
+        list.add(example4);
+        list.add(example5);
 
-        System.out.println("-----------------------------------------");
-
-        List<Passport> passportArrayList2 = new ArrayList<>();
-        Passport pas1 = new Passport(5);
-        Passport pas2 = new Passport(4);
-        Passport pas3 = new Passport(2);
-        Passport pas4 = new Passport(1);
-        Passport pas5 = new Passport(3);
-        passportArrayList2.add(pas1);
-        passportArrayList2.add(pas2);
-        passportArrayList2.add(pas3);
-        passportArrayList2.add(pas4);
-        passportArrayList2.add(pas5);
-        for (Passport passport : passportArrayList2) {
-            System.out.println(passport);
-
+        System.out.println("Вывод коллекции на консоль");
+        for (SortAndFilterTestClass sortAndFilterTestClass : list) {
+            System.out.println(sortAndFilterTestClass);
         }
 
+        System.out.println("Вывод коллекции на консоль после сортировки");
 
-
-        Collection passport = FilterApplicator.sort(passportArrayList2);
-        for (Object o : passport) {
+        Collection myList = FilterApplicator.sort(list);
+        for (Object o : myList) {
             System.out.println(o);
-
         }
 
+        System.out.println("Вывод коллекции на консоль после фильтрации");
 
+        FilterApplicator.filter(list, new MyFilter());
+        for (SortAndFilterTestClass sortAndFilterTestClass : list) {
+            System.out.println(sortAndFilterTestClass);
+        }
     }
 }

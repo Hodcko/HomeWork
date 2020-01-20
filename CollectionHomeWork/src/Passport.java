@@ -1,29 +1,18 @@
 import java.util.Date;
 import java.util.Objects;
 
-public class Passport implements Comparable<Passport> {
+public class Passport{
 
     private String id;
     private Date effectiveAt;
     private String fio;
-    private int idNumber;
 
     public Passport(String id, Date effectiveAt, String fio) {
         this.id = id;
         this.effectiveAt = effectiveAt;
         this.fio = fio;
     }
-    public Passport(int idNumber){
-        this.idNumber = idNumber;
-    }
 
-    public int getIdNumber() {
-        return idNumber;
-    }
-
-    public void setIdNumber(int idNumber) {
-        this.idNumber = idNumber;
-    }
 
     public String getId() {
         return id;
@@ -67,12 +56,8 @@ public class Passport implements Comparable<Passport> {
         return "Passport{" +
                 "id='" + id + '\'' +
                 ", effectiveAt=" + effectiveAt +
-                ", fio='" + fio + '\'' + idNumber +
+                ", fio='" + fio + '\'' +
                 '}';
     }
 
-    @Override
-    public int compareTo(Passport o) {
-        return this.idNumber - o.getIdNumber();
-    }
 }
