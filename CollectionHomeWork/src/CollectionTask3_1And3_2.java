@@ -6,16 +6,11 @@ public class CollectionTask3_1And3_2 {
     public static void main(String[] args) {
 
         List<SortAndFilterTestClass> list = new ArrayList<>();
-        SortAndFilterTestClass example1 = new SortAndFilterTestClass(12);
-        SortAndFilterTestClass example2 = new SortAndFilterTestClass(9);
-        SortAndFilterTestClass example3 = new SortAndFilterTestClass(3);
-        SortAndFilterTestClass example4 = new SortAndFilterTestClass(2);
-        SortAndFilterTestClass example5 = new SortAndFilterTestClass(16);
-        list.add(example1);
-        list.add(example2);
-        list.add(example3);
-        list.add(example4);
-        list.add(example5);
+        list.add(new SortAndFilterTestClass(12));
+        list.add(new SortAndFilterTestClass(9));
+        list.add(new SortAndFilterTestClass(3));
+        list.add(new SortAndFilterTestClass(2));
+        list.add(new SortAndFilterTestClass(16));
 
         System.out.println("Вывод коллекции на консоль");
         for (SortAndFilterTestClass sortAndFilterTestClass : list) {
@@ -28,10 +23,21 @@ public class CollectionTask3_1And3_2 {
             System.out.println(o);
         }
 
+        List myList1 = new ArrayList();
+        myList1.add("Привет");
+        myList1.add("мне");
+        myList1.add(30);
+        myList1.add("лет");
+        System.out.println("Вывод коллекции на консоль");
+
+        for (Object o : myList1) {
+            System.out.println(o);
+        }
         System.out.println("Вывод коллекции на консоль после фильтрации");
-        FilterApplicator.filter(list, new MyFilter());
-        for (SortAndFilterTestClass sortAndFilterTestClass : list) {
-            System.out.println(sortAndFilterTestClass);
+
+        FilterApplicator.filter(myList1, new MyFilter());
+        for (Object o : myList1) {
+            System.out.println(o);
         }
     }
 }
