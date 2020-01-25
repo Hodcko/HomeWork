@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class User {
@@ -9,6 +11,20 @@ public class User {
         this.id = id;
         this.name = name;
         this.password = password;
+    }
+
+    public static Map<String, User> userMap = new HashMap<>();
+
+    public static User createUser(String name, String password) throws ValidationExceptions {
+        if(Validation.validateName(name)){
+            System.out.println("Имя принято");
+        }
+        if(Validation.validatePassword(password)){
+            System.out.println("Пароль принят");
+        }
+        System.out.println("User is created");
+        return Registration.registrator(name, password);
+
     }
 
     @Override
@@ -27,7 +43,11 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
+
+
 }

@@ -4,19 +4,26 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class MessagerMain {
-    public static void main(String[] args) {
-        User user1 = new User(123, "Bob@mail.ru", "qwerty");
-        User user2 = new User(321, "John@rambler.ru", "12345");
-        Set<User> users = new HashSet<>();
-        users.add(user1);
-        users.add(user2);
-        Chat chat = new Chat(users);
-        chat.addMessage(new Message<>(user1, MessageType.TEXT, new Date(), "Hello"));
-        chat.addMessage(new Message<>(user2, MessageType.TEXT, new Date(),"Hello world"));
-        ISaverChat saver = new SaverChat();
-        saver.showChat(chat);
+    public static void main(String[] args) throws ValidationExceptions {
 
-    //валидация и регистрация
+        User myUser1 = User.createUser("hodcko@qgmail.com", "s+jhghh");
+        User myUser2 = User.createUser("hollabola@gmail.com", "fk3d0+dd");
+
+        System.out.println(User.userMap);
+        System.out.println(User.userMap.size());
+        Chat.addUser(myUser1);
+        Chat.addUser(myUser2);
+
+        Chat myChat = Chat.newChat();
+        myChat.addMessage(new Message<>(myUser1, MessageType.TEXT, new Date(), "Hello world"));
+        myChat.addMessage(new Message<>(myUser2, MessageType.TEXT, new Date(), "Hello world!!!"));
+        ISaverChat saver = new SaverChat();
+        saver.showChat(myChat);
+
+
+
+
+
 
     }
 }

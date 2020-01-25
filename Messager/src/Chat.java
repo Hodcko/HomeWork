@@ -1,12 +1,13 @@
+import javax.jws.soap.SOAPBinding;
 import java.util.*;
 
 public class Chat{
 
-    private Set<User> users;
+    public static Set<User> users = new HashSet<>();
     private List<Message> messages = new ArrayList<>();
 
-    public Set<User> getUsers() {
-        return users;
+    public static void addUser(User user){
+        users.add(user);
     }
 
     public List<Message> getMessages() {
@@ -31,7 +32,14 @@ public class Chat{
 
 
     public Chat(Set<User> users) {
-        this.users = users;
+        Chat.users = users;
+    }
+
+    public static Chat newChat() throws ValidationExceptions {
+        if(!(users.size() >= 2)){
+            throw new ValidationExceptions("Недоставточно пользователей для создания чата");
+        }
+        return new Chat(users);
     }
 
 }
