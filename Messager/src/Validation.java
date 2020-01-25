@@ -7,7 +7,6 @@ public class Validation {
         Pattern pattern = Pattern.compile("[a-zA-Z0-9]+@[a-zA-Z0-9.]+");
         Matcher mathcer = pattern.matcher(name);
         if (mathcer.find()) {
-            System.out.println(mathcer.start() + mathcer.group());
         }
         else{
             throw new ValidationExceptions("Имя не подходит");
@@ -19,7 +18,6 @@ public class Validation {
         Pattern pattern = Pattern.compile("([а-яА-Яa-zA-Z0-9](?=.*[':/!?+%]).{6,})");
         Matcher mathcer = pattern.matcher(password);
         if (mathcer.find()) {
-            System.out.println(mathcer.start() + mathcer.group());
         }
         else{
             throw new ValidationExceptions("Пароль не подходит");

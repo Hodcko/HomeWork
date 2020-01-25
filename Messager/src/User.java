@@ -17,10 +17,8 @@ public class User {
 
     public static User createUser(String name, String password) throws ValidationExceptions {
         if(Validation.validateName(name)){
-            System.out.println("Имя принято");
         }
         if(Validation.validatePassword(password)){
-            System.out.println("Пароль принят");
         }
         System.out.println("User is created");
         return Registration.registrator(name, password);
