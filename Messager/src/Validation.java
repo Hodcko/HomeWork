@@ -15,6 +15,12 @@ public class Validation {
     }
 
     public static boolean validatePassword(String password) throws ValidationExceptions {
+        char[] str = password.toCharArray();
+        for (int i = 0; i <= str.length; i ++){
+            if(str[i] == str[i + 1]){
+                throw new ValidationExceptions("Два повторяющихся симвоал под ряд");
+            }
+        }
         Pattern pattern = Pattern.compile("([а-яА-Яa-zA-Z0-9](?=.*[':/!?+%]).{6,})");
         Matcher mathcer = pattern.matcher(password);
         if (mathcer.find()) {

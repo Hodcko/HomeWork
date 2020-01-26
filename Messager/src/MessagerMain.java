@@ -6,7 +6,7 @@ import java.util.Set;
 public class MessagerMain {
     public static void main(String[] args) throws ValidationExceptions {
 
-        User myUser1 = User.createUser("hodcko@qgmail.com", "s+jhghh");
+        User myUser1 = User.createUser("hodcko@qgmail.com", "s+jhghzl");
         User myUser2 = User.createUser("hollabola@gmail.com", "fk3d0+dd");
 
         System.out.println(User.userMap);
