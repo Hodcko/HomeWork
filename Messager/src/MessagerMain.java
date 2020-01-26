@@ -6,8 +6,8 @@ import java.util.Set;
 public class MessagerMain {
     public static void main(String[] args) throws ValidationExceptions {
 
-        User myUser1 = User.createUser("hodcko@qgmail.com", "s+jhghzl");
-        User myUser2 = User.createUser("hollabola@gmail.com", "fk3d0+dd");
+        User myUser1 = User.createUser("hodcko@qgmail.com", "s+hjhgh");
+        User myUser2 = User.createUser("hollabola@gmail.com", "fk3d0+d");
 
         System.out.println(User.userMap);
         System.out.println(User.userMap.size());
@@ -19,11 +19,5 @@ public class MessagerMain {
         myChat.addMessage(new Message<>(myUser2, MessageType.TEXT, new Date(), "Hello world!!!"));
         ISaverChat saver = new SaverChat();
         saver.showChat(myChat);
-
-
-
-
-
-
     }
 }
