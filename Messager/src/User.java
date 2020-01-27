@@ -13,18 +13,6 @@ public class User {
         this.password = password;
     }
 
-    public static Map<String, User> userMap = new HashMap<>();
-
-    public static User createUser(String name, String password) throws ValidationExceptions {
-        if(Validation.validateName(name)){
-        }
-        if(Validation.validatePassword(password)){
-        }
-        System.out.println("User is created");
-        return Registration.registrator(name, password);
-
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

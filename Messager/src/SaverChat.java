@@ -7,7 +7,6 @@ public class SaverChat implements ISaverChat {
         List<Message> list = chat.getMessages();
         for (Message message : list) {
             System.out.println(message);
-
         }
     }
 }

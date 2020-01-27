@@ -9,7 +9,7 @@ public class Validation {
         if (mathcer.find()) {
         }
         else{
-            throw new ValidationExceptions("Имя не подходит");
+            throw new ValidationExceptions("Имя должно быть @mail");
         }
         return true;
     }
@@ -18,7 +18,7 @@ public class Validation {
         char[] str = password.toCharArray();
         for (int i = 1; i <= str.length - 1; i ++){
             if(str[i - 1] == str[i]){
-                throw new ValidationExceptions("Два повторяющихся символа под ряд");
+                throw new ValidationExceptions("В вашем пароле два повторяющихся символа " + str[i] + " под ряд");
             }
         }
         Pattern pattern = Pattern.compile("([а-яА-Яa-zA-Z0-9](?=.*[':/!?+%]).{6,})");
@@ -26,7 +26,8 @@ public class Validation {
         if (mathcer.find()) {
         }
         else{
-            throw new ValidationExceptions("Пароль не подходит");
+            throw new ValidationExceptions("Пароль должен быть не короче 7 символов и иметь " +
+                    "как минимум один символ из ':/!?+%");
         }
         return true;
     }

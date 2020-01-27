@@ -1,10 +1,10 @@
 import java.util.Date;
 
 public class Message<T> {
-    User user;
-    Enum type;
-    Date date;
-    T data;
+    private User user;
+    private Enum type;
+    private Date date;
+    private T data;
 
     public Message(User user, Enum type, Date date, T data) {
         this.user = user;
