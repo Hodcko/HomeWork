@@ -1,0 +1,2 @@
+Message{user=User{id=18529, name='hodcko@qgmail.com', password='s+hjdgh'}, type=TEXT, date=Tue Jan 28 19:28:10 MSK 2020, data=Hello world}
+Message{user=User{id=79098, name='hollabola@gmail.com', password='fk3d0+d'}, type=TEXT, date=Tue Jan 28 19:28:10 MSK 2020, data=Hello world!!!}

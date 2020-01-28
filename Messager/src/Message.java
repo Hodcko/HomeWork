@@ -13,6 +13,10 @@ public class Message<T> {
         this.data = data;
     }
 
+    public User getUser() {
+        return user;
+    }
+
     @Override
     public String toString() {
         return "Message{" +

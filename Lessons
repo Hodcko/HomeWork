@@ -1,0 +1,8 @@
+inputstream - reader
+uotpootstream - whriter
+дозаписать FileOutputStream конструктор с append
+
+убрать из  Registration static поля и методы
+
+райт общект, рид обджект из Serialisable
+
