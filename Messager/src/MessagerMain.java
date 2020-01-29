@@ -1,9 +1,9 @@
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Date;
 
 public class MessagerMain {
-    public static void main(String[] args) throws ValidationExceptions, FileNotFoundException {
+    public static void main(String[] args) throws ValidationExceptions, IOException {
 
         Registration registration = new Registration();
         User myUser1 = registration.createUser("hodcko@qgmail.com", "s+hjdgh");
@@ -19,5 +19,8 @@ public class MessagerMain {
 
         WriterChat write = new WriterChat();
         write.showChat(myChat);
+
+        WriteBinnaryChat writeBinnaryChat = new WriteBinnaryChat();
+        writeBinnaryChat.showBinnaryChat(myChat);
     }
 }
