@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class SaverChat implements ISaverChat {
+public class PrintChat implements ISaverChat {
 
     @Override
     public void showChat(Chat chat) {

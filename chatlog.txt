@@ -1,2 +1,2 @@
-Message{user=User{id=4083, name='hodcko@qgmail.com', password='s+hjdgh'}, type=TEXT, date=Wed Jan 29 16:14:20 MSK 2020, data=Hello world}
-Message{user=User{id=4736, name='hollabola@gmail.com', password='fk3d0+d'}, type=TEXT, date=Wed Jan 29 16:14:20 MSK 2020, data=Hello world!!!}
+Message{user=User{id=73657, name='hodcko@qgmail.com', password='s+hjdgh'}, type=TEXT, date=Wed Jan 29 21:09:38 MSK 2020, data=Hello world}
+Message{user=User{id=31284, name='hollabola@gmail.com', password='fk3d0+d'}, type=TEXT, date=Wed Jan 29 21:09:38 MSK 2020, data=Hello world!!!}

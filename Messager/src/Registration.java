@@ -1,10 +1,19 @@
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class Registration {
+public class Registration implements Serializable {
 
     private Map<String, User> userMap = new HashMap<>();
+
+    public Map<String, User> getUserMap() {
+        return userMap;
+    }
+
+    public void setUserMap(Map<String, User> userMap) {
+        this.userMap = userMap;
+    }
 
     public  User createUser(String name, String password) throws ValidationExceptions {
         if(Validation.validateName(name)){
