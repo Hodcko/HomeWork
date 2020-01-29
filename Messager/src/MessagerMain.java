@@ -9,7 +9,7 @@ public class MessagerMain {
         Registration registration = new Registration();
         ChatLoader chatLoader = new ChatLoader();
         chatLoader.load(registration);
-
+//
 //        User myUser1 = registration.createUser("hodcko@qgmail.com", "s+hjdgh");
 //        User myUser2 = registration.createUser("hollabola@gmail.com", "fk3d0+d");
 //        User myUser3 = registration.createUser("helloworld@gmail.com", "fz3d0+3");

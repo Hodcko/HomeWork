@@ -1,6 +1,5 @@
+import java.io.IOException;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class User implements Serializable {
@@ -12,6 +11,44 @@ public class User implements Serializable {
         this.id = id;
         this.name = name;
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject();
+        out.writeInt(getId());
+        out.writeObject(getName());
+        out.writeObject(getPassword());
+    }
+
+    private void readObject(java.io.ObjectInputStream in)  throws IOException, ClassNotFoundException{
+        in.defaultReadObject();
+        setId(in.readInt());
+        setName((String)in.readObject());
+        setPassword((String)in.readObject());
     }
 
     @Override
