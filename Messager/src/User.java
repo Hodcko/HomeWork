@@ -1,6 +1,6 @@
+import java.io.IOException;
+import java.io.InvalidObjectException;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class User implements Serializable {
@@ -8,10 +8,54 @@ public class User implements Serializable {
     private String name;
     private String password;
 
+    static final long SerialVersionUID = 1L;
+
     public User(int id, String name, String password) {
         this.id = id;
         this.name = name;
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject();
+        out.writeInt(getId());
+        out.writeObject(getName());
+        out.writeObject(getPassword());
+    }
+
+    private void readObject(java.io.ObjectInputStream in)  throws IOException, ClassNotFoundException{
+        in.defaultReadObject();
+        setId(in.readInt());
+        setName((String)in.readObject());
+        setPassword((String)in.readObject());
+    }
+
+    private void readObjectNoData() throws InvalidObjectException {
+        throw new InvalidObjectException("Stream required");
     }
 
     @Override
@@ -35,4 +79,5 @@ public class User implements Serializable {
                 ", password='" + password + '\'' +
                 '}';
     }
+
 }

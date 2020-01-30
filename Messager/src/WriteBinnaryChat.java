@@ -1,17 +1,15 @@
 import java.io.*;
-import java.util.List;
 
-public class WriteBinnaryChat {
-    public void showBinnaryChat(Chat chat) throws IOException {
-        //List<Message> list = chat.getMessages();
-        OutputStream stream = new FileOutputStream("chatlogbinnary.txt");
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(stream);
-        //objectOutputStream.writeObject(list);
-        for (int i = 0; i < chat.getMessages().size() ; i++) {
-            objectOutputStream.writeBytes((chat.getMessages().get(i)).toString());
 
+public class WriteBinnaryChat implements ISaverChat{
+    @Override
+    public void showChat(Chat chat)  {
+        try ( ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("chatlogbinnary.txt"))){
+            for (int i = 0; i < chat.getMessages().size() ; i++) {
+                oos.writeBytes((chat.getMessages().get(i)).toString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        objectOutputStream.close();
     }
 }
