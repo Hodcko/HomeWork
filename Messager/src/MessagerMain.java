@@ -23,6 +23,7 @@ public class MessagerMain {
 
         WriteBinnaryChat writeBinnaryChat = new WriteBinnaryChat();
         writeBinnaryChat.showChat(myChat);
+        writeBinnaryChat.showChatFromBinaryFile();//распечатка чата из бинарного файла
 
         chatLoader.save(registration);
 
