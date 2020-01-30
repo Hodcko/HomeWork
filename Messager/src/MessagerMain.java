@@ -22,5 +22,7 @@ public class MessagerMain {
 
         WriteBinnaryChat writeBinnaryChat = new WriteBinnaryChat();
         writeBinnaryChat.showBinnaryChat(myChat);
+
+
     }
 }

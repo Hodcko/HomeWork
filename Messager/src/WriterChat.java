@@ -26,12 +26,12 @@ public class WriterChat implements ISaverChat{
 
 
     @Override
-    public void showChat(Chat chat) throws FileNotFoundException {
-        List<Message> list = chat.getMessages();
-        PrintWriter writer = new PrintWriter(new FileOutputStream("chatlog.txt"));
-        for (Message message : list) {
-            writer.println(message);
+    public void showChat(Chat chat) {
+        try(PrintWriter writer = new PrintWriter(new FileOutputStream("chatlog.txt"))) {
+            for (Message message : chat.getMessages())
+                writer.println(message.toString());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        writer.close();
     }
 }
