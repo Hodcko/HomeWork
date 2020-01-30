@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.Map;
 
 public class MessagerMain {
-    public static void main(String[] args) throws ValidationExceptions, IOException{
+    public static void main(String[] args) throws ValidationExceptions, IOException, ClassNotFoundException {
 
         Registration registration = new Registration();
         ChatLoader chatLoader = new ChatLoader();
