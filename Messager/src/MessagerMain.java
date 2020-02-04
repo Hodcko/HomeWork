@@ -28,5 +28,7 @@ public class MessagerMain {
         chatLoader.save(registration);
 
         System.out.println(registration.getUserMap());
+
+
     }
 }
