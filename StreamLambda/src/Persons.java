@@ -1,4 +1,4 @@
-public class Person {
+public class Persons {
     String name;
 
     public String getName() {

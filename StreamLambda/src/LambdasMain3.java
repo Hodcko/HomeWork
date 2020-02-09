@@ -1,8 +1,8 @@
 public class LambdasMain3 {
     public static void main(String[] args) {
-        Person person = new Person();
+        Persons person = new Persons();
         person.setName("Tom");
-        FunkInter3<Person> funkInter3 = (e) -> {
+        FunkInter3<Persons> funkInter3 = (e) -> {
             if(e.getName().equals("Tom")){
                 return false;
             }
