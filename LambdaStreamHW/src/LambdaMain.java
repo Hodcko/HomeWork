@@ -22,7 +22,7 @@ public class LambdaMain {
                 .filter(Student -> Student !=null)
                 .filter(Student -> Student.getGrade() < 8)
                 .skip(3)
-                .collect(Collectors.toCollection(ArrayList::new));//(Collectors.toList());
+                .collect(Collectors.toCollection(ArrayList::new));
         System.out.println("Студенты с баллом меньше 8\n " + underperformingStudents);
         System.out.println(underperformingStudents.size());
         save(underperformingStudents, "underperformingStudents.txt");

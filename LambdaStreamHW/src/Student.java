@@ -14,10 +14,6 @@ public class Student implements Serializable {
         return grade;
     }
 
-    public String getName() {
-        return name;
-    }
-
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;

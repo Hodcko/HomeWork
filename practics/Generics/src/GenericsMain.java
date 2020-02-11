@@ -29,7 +29,7 @@ public class GenericsMain {
         System.out.println(myPerson);
 
         test(persons);
-        test(students);
+
         
     }
     private static void test(List<? extends Person> list){
