@@ -4,6 +4,8 @@ import java.util.Objects;
 public class Student implements Serializable {
     private String name;
     private int grade;
+    private static final long serialVersionUID = 1L;
+
 
     public Student(String name, int grade) {
         this.name = name;
