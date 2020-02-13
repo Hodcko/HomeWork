@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Saver {
 
-    public void save(List<Student> students, String fileName)  {
+    public void save(List<Students> students, String fileName)  {
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
             oos.writeObject(students);
         } catch (IOException e) {

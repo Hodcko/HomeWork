@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Loader {
-    public List<Student> load(String fileName) {
-        List<Student> students = new ArrayList<>();
+    public List<Students> load(String fileName) {
+        List<Students> students = new ArrayList<>();
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName)) ) {
-            students = ((List<Student>) ois.readObject());
+            students = ((List<Students>) ois.readObject());
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }

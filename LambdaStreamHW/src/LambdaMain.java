@@ -20,8 +20,8 @@ public class LambdaMain {
         if(allStudents.exists()){
             university.setAllStudents(loader.load(allStudents.getPath()));
         }else {
-            List<Student> students = Stream
-                    .generate(() -> new Student(university.randomName(5), new Random().nextInt(11)))
+            List<Students> students = Stream
+                    .generate(() -> new Students(university.randomName(5), new Random().nextInt(11)))
                     .limit(100)
                     .collect(Collectors.toCollection(ArrayList::new));
             university.setAllStudents(students);
@@ -31,17 +31,17 @@ public class LambdaMain {
         System.out.println("Количество всех студентов: " + university.getAllStudents().size() + "\n");
 
 //      Сортируем по оценке и выбираем студентов с баллом меньше 7
-        List<Student> underperformingStudents = loader.load(allStudents.getPath()).stream()
+        List<Students> underperformingStudents = loader.load(allStudents.getPath()).stream()
                 .filter(Student -> Student !=null)
-                .sorted(Comparator.comparing(Student::getGrade))
-                .filter(Student -> Student.getGrade() < 7)
+                .sorted(Comparator.comparing(Students::getGrade))
+                .filter(Students -> Students.getGrade() < 7)
                 .collect(Collectors.toCollection(ArrayList::new));
         System.out.println("Студенты с баллом меньше 7\n " + underperformingStudents);
         System.out.println("Количество студентов с баллом меньше 7: " + underperformingStudents.size() + "\n");
         saver.save(underperformingStudents, noSertificatedStudents.getPath());
 
 //      Удаляем студентов с золотым билетом из списка студентов с баллом меньше 7
-        List<Student> unSertificatedStudents = loader.load(noSertificatedStudents.getPath()).stream()
+        List<Students> unSertificatedStudents = loader.load(noSertificatedStudents.getPath()).stream()
                 .limit(underperformingStudents.size()-3)
                 .collect(Collectors.toCollection(ArrayList::new));
         System.out.println("Студенты без сертификата \n" + unSertificatedStudents);
@@ -49,13 +49,13 @@ public class LambdaMain {
         saver.save(unSertificatedStudents, noSertificatedStudents.getPath());
 
 //        Альтернативный вариант поиска студентов с золотым билетом
-//        List<Student> unSertificatedStudents = findLuckers(loader.load(noSertificatedStudents.getPath()), 3);
+//        List<Students> unSertificatedStudents = findLuckers(loader.load(noSertificatedStudents.getPath()), 3);
 //        saver.save(unSertificatedStudents, noSertificatedStudents);
 
 
     }
 
-    public static List<Student> findLuckers(List<Student> students, int numberOfLuckers){
+    public static List<Students> findLuckers(List<Students> students, int numberOfLuckers){
         Random random = new Random();
         while (numberOfLuckers > 0){
             int numberOfLucker = random.nextInt(students.size());

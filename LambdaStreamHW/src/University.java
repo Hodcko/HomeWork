@@ -2,14 +2,14 @@ import java.security.SecureRandom;
 import java.util.List;
 
 public class University {
-    private List<Student> allStudents;
+    private List<Students> allStudents;
     private String symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-    public List<Student> getAllStudents() {
+    public List<Students> getAllStudents() {
         return allStudents;
     }
 
-    public void setAllStudents(List<Student> allStudents) {
+    public void setAllStudents(List<Students> allStudents) {
         this.allStudents = allStudents;
     }
 
