@@ -1,6 +1,6 @@
 package com.company;
 
-public class git Test15 {
+public class Test15 {
     static long a = 0;
     static final Object lock = new Object();
 
